@@ -6,9 +6,8 @@ import PROFILE from "../../images/PROFILE.jpg";
 import BookingCard from "../cards/BookingCard";
 import LinkBar from "../Linkbar";
 import useStyles from '../../styles';
-import QuickLinksCard from "../cards/QuickLinksCard";
-import PrivacyCard from "../cards/PrivacyCard";
-import CopyrightCard from "../cards/CopyrightCard";
+import GoogleMap from "../GoogleMap";
+
 
 // custome theme
 const theme = createTheme({
@@ -44,13 +43,13 @@ const Home = () => {
                     <Grid item xs={9} md={8}>
                         <img alt="" src={PROFILE} height="73%" width="100%"/>
                     </Grid>
-                    <Grid item xs={3} md={4}> 
+                    <Grid item xs={3} md={4} > 
                         <BookingCard />
                     </Grid>
 
                     {/* bottom part of the page*/} 
                     <Grid item xs={4} md={4}  height='100%'> 
-                        A
+                        < GoogleMap className={styles.header} />
                     </Grid>
                     <Grid item xs={4} md={4} > 
                         B

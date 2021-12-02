@@ -23,7 +23,11 @@ export default makeStyles(() => ({
         backgroundColor: 'red',
         fontSize: 'small',
         textAlign: 'center',
-        height: '100%'
-    }  
+    },
+    mapWrap: {
+        marginLeft: '0px',
+        
+               
+    },
 
 }));
