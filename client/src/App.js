@@ -1,33 +1,25 @@
 import React from "react";
-import { Container, Toolbar, Typography, AppBar, Link } from '@material-ui/core';
-
-import LOGO from './images/LOGO.png';
-import Post from "./components/post/Post";
-import Form from "./components/form/Form";
-import useStyles from './styles';
+import About from "../src/components/links/About";
+import Gallary from "../src/components/links/Gallary";
+import Contact from "../src/components/links/Contact";
+import Home from "../src/components/links/Home";
+import NewPatients from "../src/components/NewPatients";
+import OldPatients from "../src/components/OldPatients";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
-    const styles = useStyles();
-    return (
-        <Container maxWidth='xl'>
-            <AppBar className={styles.AppBar} position="relative">
+    
+    return (        
 
-                <Toolbar sx={{ justifyContent: 'space-between', overflowX: 'auto' }}>
-                    <Typography variant="h5">Homeo+Clinic</Typography>
-                    <img className={styles.image} src={LOGO} height="50" />                    
-                        <Link 
-                            variant="button"
-                            href="#"
-                            color="inherit"                                                                        
-                        > <Typography className={styles.aboutUs}> About</Typography>                     
-                        </Link>                  
-                    
-                </Toolbar>
-
-                
-            </AppBar>
-            
-        </Container> 
+        <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/Home" element={<Home/>} />        
+            <Route path="/About" element={<About/>} />
+            <Route path="/Gallary" element={<Gallary/>} />
+            <Route path="/Contact"element={<Contact/>} /> 
+            <Route path="/NewPatients"element={<NewPatients/>} />
+            <Route path="/OldPatients"element={<OldPatients/>} />                   
+        </Routes>
     );
 }
 

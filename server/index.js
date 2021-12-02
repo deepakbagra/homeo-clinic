@@ -1,24 +1,41 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import patientRouter from './routes/patients.js';
+
+dotenv.config();
 
 const app = express();
 
 // allow middleware to handle incoming request object
-
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(cors());
 
-// set-up mongodb data base
-
-const CONNECT_URI = 'mongodb+srv://deepak:Deepak123@cluster0.0lvkk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-
-// server listen to the defined port
-
+// set-up connetion to mongodb data base
+const uri = process.env.ATLUS_URI;
 const PORT = process.env.PORT || 9000;
+mongoose.connect(uri);
 
-mongoose.connect(CONNECT_URI)
-    .then( () => app.listen(PORT, () => console.log(`Serveer is running on PORT ${PORT}`)) )
-    .catch( (error) => console.log(error.message) );
+const connection = mongoose.connection;
+
+connection.once('open', () => {
+    console.log("Mongoose database connection established successfully!");
+});
+
+// routing to the patients page
+app.use('/patients', patientRouter);
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port: ${PORT}`);
+})
+
+
+
+
+
+
 
 
 
