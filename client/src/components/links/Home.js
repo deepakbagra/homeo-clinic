@@ -29,7 +29,7 @@ const Home = () => {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Box sx={{ bgcolor: 'primary.light' }}>
+            
 
                 {/* top part of the page*/}
                 
@@ -49,7 +49,7 @@ const Home = () => {
 
                     {/* bottom part of the page*/} 
                     <Grid item xs={4} md={4}  height='100%'> 
-                        < GoogleMap className={styles.header} />
+                        < GoogleMap />
                     </Grid>
                     <Grid item xs={4} md={4} > 
                         B
@@ -60,7 +60,7 @@ const Home = () => {
                 </Grid> 
 
                 {/*bottom part of the page*/}
-            </Box>
+           
 
             
         </ThemeProvider>     

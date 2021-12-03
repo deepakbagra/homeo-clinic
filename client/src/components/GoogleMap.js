@@ -2,6 +2,9 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import React from 'react';
 import useStyle from '../styles';
 import dotenv from 'dotenv';
+import BrandName from './BrandName';
+
+const brandName = BrandName().brandName;
 
 dotenv.config();
 
@@ -9,10 +12,10 @@ dotenv.config();
 const myLat = 26.850168;
 const myLong = 75.758866 ;
 const myKey = process.env.REACT_APP_API_KEY;
-console.log("Hello");
 
 
 
+// function return Google map props
 export const GoogleMap = (props) => {
     const styles = useStyle();
     return (
@@ -25,19 +28,20 @@ export const GoogleMap = (props) => {
         lng: myLong
       }}
       className={styles.mapWrap}
-      >
- 
+      > 
         <Marker onClick={props.onMarkerClick}
-                name={'Dr Reena'} label={'Dr Reena Homeo-Clinic'}  />
- 
-        <InfoWindow onClose={props.onInfoWindowClose}>
-            
-        </InfoWindow>
+            name={'Dr Reena'}
+            label={{
+                text:brandName,                
+                fontFamily: 'Sans-serif',
+                fontWeight: 'bold',                
+            }}                                                    
+        />
       </Map>
-    );
-  
+    ); 
 }
  
+//passing api key
 export default GoogleApiWrapper({
   apiKey: myKey
 })(GoogleMap)
