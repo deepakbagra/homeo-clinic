@@ -11,7 +11,7 @@ const LinkBar = () => {
         
         <AppBar position='static' color='primary'>
             <Toolbar >
-                <img alt="" className={styles.image} src={LOGO} height="40" />
+                <img alt="" className={styles.image} src={LOGO} height="60" />
 
                 <Typography className={styles.header} variant="h5">Dr Reena Homeo-Clinic
                 </Typography>

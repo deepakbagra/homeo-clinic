@@ -7,19 +7,21 @@ import BookingCard from "../cards/BookingCard";
 import LinkBar from "../Linkbar";
 import useStyles from '../../styles';
 import GoogleMap from "../GoogleMap";
+import Address from "../Address";
+import QuickLinks from "../QuickLinks";
+import BusinessHrs from "../BusinessHrs";
+import Copyright from "../Copyright";
 
 
 // custome theme
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#00695f',
-            light: '#C2A116' ,           
-        },
+            main: '#00695f',                       
+        }, 
         secondary: {
-            main: '#0044ff',            
-        },
-        
+            main: '#C70411',
+        }      
    },
 });
 
@@ -41,21 +43,28 @@ const Home = () => {
 
                     {/* middle part of the page*/} 
                     <Grid item xs={9} md={8}>
-                        <img alt="" src={PROFILE} height="73%" width="100%"/>
+                        <img alt="" src={PROFILE} height="80%" width="100%"/>
                     </Grid>
                     <Grid item xs={3} md={4} > 
                         <BookingCard />
                     </Grid>
 
-                    {/* bottom part of the page*/} 
-                    <Grid item xs={4} md={4}  height='100%'> 
+                    {/* bottom part of the page*/}
+
+                    <Grid item xs={3} md={3} className={styles.mapWrapper}> 
                         < GoogleMap />
                     </Grid>
-                    <Grid item xs={4} md={4} > 
-                        B
+                    <Grid item xs={3} md={3} className={styles.addressWrap}> 
+                        <Address />
                     </Grid>
-                    <Grid item xs={4} md={4} > 
-                        C
+                    <Grid item xs={3} md={3} > 
+                        <QuickLinks />
+                    </Grid>
+                    <Grid item xs={3} md={3} > 
+                        <BusinessHrs />
+                    </Grid>
+                    <Grid item xs={12} md={12} > 
+                        < Copyright />
                     </Grid>
                 </Grid> 
 

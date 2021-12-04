@@ -24,10 +24,11 @@ export default makeStyles(() => ({
         fontSize: 'small',
         textAlign: 'center',
     },
-    mapWrap: {
-        marginLeft: '0px',
-        
-               
-    },
+    addressWrap: {
+        fontSize: '20px',
+        paddingLeft: '150px',      
+    },  
+   
+   
 
 }));

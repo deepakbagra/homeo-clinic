@@ -13,8 +13,6 @@ const myLat = 26.850168;
 const myLong = 75.758866 ;
 const myKey = process.env.REACT_APP_API_KEY;
 
-
-
 // function return Google map props
 export const GoogleMap = (props) => {
     const styles = useStyle();
@@ -22,7 +20,7 @@ export const GoogleMap = (props) => {
       <Map
        google={props.google}
        zoom={15}
-       style={{height: '40%', width: '40%'}}
+       style={{height: '70%', width: '30%'}}
        initialCenter={{
         lat: myLat,
         lng: myLong

@@ -7,7 +7,7 @@ const BookingCard = () => {
     <Card sx={{ maxWidth: 300 }} style={{backgroundColor: '#CBD4CD'}}>
       <CardMedia
         component="img"
-        height="80%"
+        height='343'
         image={onlineBook}
         alt="online booking"
       />
