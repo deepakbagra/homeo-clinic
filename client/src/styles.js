@@ -11,7 +11,8 @@ export default makeStyles(() => ({
     header: {
         flexGrow: 1,
         marginLeft: '8px',
-        //color: 'lightgreen',
+        color: 'white'
+        
     },
     
     linkWrap: {
@@ -19,6 +20,7 @@ export default makeStyles(() => ({
         color: 'white',
         textDecoration: 'none',        
     },
+    
     bottomWrap: {
         backgroundColor: 'red',
         fontSize: 'small',
@@ -26,7 +28,7 @@ export default makeStyles(() => ({
     },
     addressWrap: {
         fontSize: '20px',
-        paddingLeft: '150px',      
+        paddingLeft: '150px',              
     },  
    
    

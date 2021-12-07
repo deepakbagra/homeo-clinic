@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import useStyle from "../styles";
-import { Toolbar, Typography, AppBar } from '@material-ui/core';
+import { Toolbar, Typography, AppBar, Button } from '@material-ui/core';
 import LOGO from '../images/LOGO.png';
 
 
@@ -16,17 +16,20 @@ const LinkBar = () => {
                 <Typography className={styles.header} variant="h5">Dr Reena Homeo-Clinic
                 </Typography>
 
-                <Link to="/Home" className={styles.linkWrap} 
-                > Home </Link> 
+                <Button href="/Booking" className={styles.header } 
+                > Book Appointment </Button>
 
-                <Link to="/About" className={styles.linkWrap}
-                > About </Link>                                            
+                <Button href="/Home" className={styles.linkWrap} 
+                > Home </Button> 
 
-                <Link to="/Gallary" className={styles.linkWrap}
-                > Gallary </Link> 
+                <Button href="/About" className={styles.linkWrap}
+                > About </Button>                                            
 
-                <Link to="/Contact" className={styles.linkWrap}
-                > Contact </Link> 
+                <Button href="/Gallary" className={styles.linkWrap}
+                > Gallary </Button> 
+
+                <Button href="/Contact" className={styles.linkWrap}
+                > Contact </Button> 
             </Toolbar> 
         </AppBar>         
     )

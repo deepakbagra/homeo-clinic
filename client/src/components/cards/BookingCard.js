@@ -4,7 +4,7 @@ import onlineBook from '../../images/BOOKING-ONLINE.jpg';
 
 const BookingCard = () => {
   return (
-    <Card sx={{ maxWidth: 300 }} style={{backgroundColor: '#CBD4CD'}}>
+    <Card sx={{ maxWidth: 300 }} style={{backgroundColor: '#CBD4CD', height: '80%'}}>
       <CardMedia
         component="img"
         height='343'
@@ -13,13 +13,13 @@ const BookingCard = () => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Book Now
+          <Button size='large' href='/Booking'>Book Now</Button>
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Currently we are accepting online bookings only.
+        <Typography variant="body2">
+           Currently we are accepting online bookings only.
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions >
         <Button size="small" color='secondary'>New Visitor</Button>
         <Button size="small" color='secondary'>Regular Visitor</Button>
       </CardActions>

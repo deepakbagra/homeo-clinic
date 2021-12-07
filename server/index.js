@@ -2,11 +2,15 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+
+// routers
 import patientRouter from './routes/patients.js';
+import appointmentRouter from './routes/appointment.js';
 
 dotenv.config();
 
 const app = express();
+
 
 // allow middleware to handle incoming request object
 app.use(express.json());
@@ -24,8 +28,9 @@ connection.once('open', () => {
     console.log("Mongoose database connection established successfully!");
 });
 
-// routing to the patients page
+// routing to the given path 
 app.use('/patients', patientRouter);
+app.use('/appointments', appointmentRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);

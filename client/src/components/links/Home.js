@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider} from "@material-ui/core/styles";
-import { Box } from "@material-ui/core";
+import { Box, Container } from "@material-ui/core";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Grid, Typography } from '@material-ui/core';
 import PROFILE from "../../images/PROFILE.jpg";
@@ -10,7 +10,7 @@ import GoogleMap from "../GoogleMap";
 import Address from "../Address";
 import QuickLinks from "../QuickLinks";
 import BusinessHrs from "../BusinessHrs";
-import Copyright from "../Copyright";
+import Footer from "../Footer";
 
 
 // custome theme
@@ -39,7 +39,7 @@ const Home = () => {
             
                 {/* rest part of the page*/}                
                 
-                <Grid container spacing={0}>
+                <Grid container >
 
                     {/* middle part of the page*/} 
                     <Grid item xs={9} md={8}>
@@ -51,7 +51,7 @@ const Home = () => {
 
                     {/* bottom part of the page*/}
 
-                    <Grid item xs={3} md={3} className={styles.mapWrapper}> 
+                    <Grid item xs={3} md={3} > 
                         < GoogleMap />
                     </Grid>
                     <Grid item xs={3} md={3} className={styles.addressWrap}> 
@@ -62,16 +62,10 @@ const Home = () => {
                     </Grid>
                     <Grid item xs={3} md={3} > 
                         <BusinessHrs />
-                    </Grid>
-                    <Grid item xs={12} md={12} > 
-                        < Copyright />
-                    </Grid>
+                    </Grid> 
+                    <Footer />             
                 </Grid> 
-
-                {/*bottom part of the page*/}
-           
-
-            
+                
         </ThemeProvider>     
     )
 }

@@ -29,7 +29,7 @@ router.route('/add').post((req, res) => {
 
     newPatient.save()
     .then(() => res.json('Patient addedd!'))
-    .catch(error => res.status(400).json(error.message));
+    .catch(error => res.status(400).send(error.message));
 });
 
 // find patient by id
