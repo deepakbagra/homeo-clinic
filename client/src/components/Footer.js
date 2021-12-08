@@ -2,7 +2,7 @@ import { Container, Typography, AppBar, Toolbar } from "@material-ui/core";
 
 const Footer = () => {
     return (
-        <AppBar style={{ top: '25em' }} position='relative' height='8em'>
+        <AppBar style={{ top: '40em', background: '#2E3B55' }} position='relative' height='10em'>
           <Container maxWidth="sm">
             <Toolbar>       
                 <Typography variant='body2' color='black' align='center'>

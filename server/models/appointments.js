@@ -12,7 +12,11 @@ const appointmentSchema = new Schema({
         trim: true,
     },
     appointmentDate : {
-        type: Date,
+        type: String,
+        trim: true,
+    },
+    appointmentTime : {
+        type: String,
         trim: true,
     },
     email: {

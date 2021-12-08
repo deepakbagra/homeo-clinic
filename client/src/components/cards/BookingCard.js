@@ -13,7 +13,7 @@ const BookingCard = () => {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          <Button size='large' href='/Booking'>Book Now</Button>
+          <Button size='large' href='/Appointments'>Book Appointment</Button>
         </Typography>
         <Typography variant="body2">
            Currently we are accepting online bookings only.

@@ -9,10 +9,12 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error:' + err));
 });
 
-router.route('/add').post((req, res) => {
-    const appointmentDate = req.body.appointmentDate;
-    const name = req.body.name;
-    const email = req.body.email;
+router.route('/add').post((req, res) => {    
+    let name = req.body.name;
+    let appointmentDate = req.body.appointmentDate;
+    let appointmentTime = req.body.appointmentTime;
+    let email = req.body.email;
+      
 
     if (!appointmentDate || !name || !email) {
         return res.status(400).json(
@@ -20,9 +22,10 @@ router.route('/add').post((req, res) => {
         );        
     }
 
-    const newAppointment = new Appointment( {
-        appointmentDate,
+    const newAppointment = new Appointment( {        
         name,
+        appointmentDate,
+        appointmentTime,
         email,
      });
      newAppointment.save()
