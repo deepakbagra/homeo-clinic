@@ -1,4 +1,4 @@
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 import React from 'react';
 import dotenv from 'dotenv';
 import BrandName from './BrandName';
@@ -19,7 +19,7 @@ export const GoogleMap = (props) => {
       <Map
        google={props.google}
        zoom={15}
-       style={{height: '42%', width: '30%'}}
+       style={{height: '70%', width: '100%'}}
        initialCenter={{
         lat: myLat,
         lng: myLong

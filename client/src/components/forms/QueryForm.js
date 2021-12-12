@@ -6,12 +6,10 @@ const QueryForm = () => {
 
     // defining form fileds states
     const [state, setState] = useState({
-        firstName: "",
-        middleName: "",
-        lastName: "",
-        gender: "",
-        dob: "",
-        email: "",        
+        firstName: "",        
+        lastName: "",        
+        email: "",
+        message: "",        
     });
 
    // handle form validation
@@ -26,13 +24,13 @@ const QueryForm = () => {
         if (fields.lastName === "") { 
             errMessages += "last name cannot be empty!\n";
             
-        }
-        if (fields.gender === "") { 
-            errMessages += "gender cannot be empty!\n";
-            
-        }
+        }        
         if (fields.email === "") { 
             errMessages += "email cannot be empty!\n";
+            
+        }
+        if (fields.message === "") { 
+            errMessages += "message cannot be empty!\n";
             
         }
         return errMessages;
@@ -45,31 +43,10 @@ const QueryForm = () => {
         });
     }
 
-    const onChangeMiddleName = (e) => {
-        setState({   
-            ...state,         
-            middleName: e.target.value
-        });
-    }
-
     const onChangeLastName = (e) => {
         setState({   
             ...state,         
             lastName: e.target.value
-        });
-    }
-
-    const onChangeGender = (e) => {
-        setState({   
-            ...state,         
-            gender: e.target.value
-        });
-    }
-
-    const onChangeDob = (e) => {
-        setState({   
-            ...state,         
-            dob: e.target.value
         });
     }
 
@@ -80,18 +57,23 @@ const QueryForm = () => {
         });
     }
 
+    const onChangeMessage = (e) => {
+        setState({
+            ...state,
+            message: e.target.value
+        });
+    }
+
     
     // updating states into database on form submission event
     const onSubmit = (e) => {
         e.preventDefault();       
 
         const queryForm = {
-            firstName: state.firstName,
-            middleName: state.middleName,
-            lastName: state.lastName,
-            gender: state.gender,
-            dob: state.dob,
-            email: state.email,            
+            firstName: state.firstName,            
+            lastName: state.lastName,            
+            email: state.email,
+            message: state.message,           
         }
         
         // posting to database
@@ -108,35 +90,33 @@ const QueryForm = () => {
         }
         
 
-        axios.post('http://localhost:9000/patients/add', queryForm)
+        axios.post('http://localhost:9000/query/add', queryForm)
             .then(res => console.log(res.data))
             .catch(err => console.log(err)); 
 
-        // setting form field blank after submitting
+        // setting form field blank after submission
         setState({
-            firstName: "",
-            middleName: "",
-            lastName: "",
-            gender: "",
-            dob: "",
-            email: "",             
+            firstName: "",            
+            lastName: "",            
+            email: "",
+            message: "",             
         })
     }
 
    
     return (
-        //< ValidatorForm ref="form" onSubmit={onSubmit} onError={errors => console.log(errors)}>
+        
             <form noValidate autoComplete="off">
-                <Grid container spacing={1}>
+                <Grid container spacing={2}>
                     <Grid item xs={10} md={12}>
-                        <Typography variant="h6" gutterBottom>
-                            Submit your query
+                        <Typography variant="h6" gutterBottom style={{marginTop:'10%'}}>
+                            Submit your query here
                         </Typography>
                     </Grid>
 
                     <Grid item xs={10} md={12}>
                         <TextField                             
-
+                        
                             label="first-name"                            
                             variant="outlined"
                             required
@@ -144,18 +124,6 @@ const QueryForm = () => {
                             name="first-name"
                             value={state.firstName}           
                             onChange={onChangeFirstName}            
-                        />
-                    </Grid>
-
-                    <Grid item xs={10} md={12}>
-                        <TextField
-
-                            label="middle-name"                            
-                            variant="outlined"                            
-                            fullWidth
-                            name="middle-name"
-                            value={state.middleName}           
-                            onChange={onChangeMiddleName}            
                         />
                     </Grid>
 
@@ -170,32 +138,7 @@ const QueryForm = () => {
                             value={state.lastName}           
                             onChange={onChangeLastName}            
                         />
-                    </Grid>
-
-                    <Grid item xs={10} md={12}>
-                        <TextField
-
-                            label="gender"                            
-                            variant="outlined"
-                            required                            
-                            fullWidth
-                            name="gender"
-                            value={state.gender}           
-                            onChange={onChangeGender}            
-                        />
-                    </Grid>
-
-                    <Grid item xs={10} md={12}>
-                        <TextField
-
-                            label="dob"                            
-                            variant="outlined"                                                        
-                            fullWidth
-                            name="dob"
-                            value={state.dob}           
-                            onChange={onChangeDob}            
-                        />
-                    </Grid>                    
+                    </Grid>        
 
                     <Grid item xs={10} md={12}>
                         <TextField
@@ -210,8 +153,8 @@ const QueryForm = () => {
                         />
                     </Grid>
 
-                    {/* <Grid item xs={10} md={12}>
-                        <TextField
+                    <Grid item xs={10} md={12} >
+                        <TextField 
 
                             label="message"
                             id="outlined-controlled"
@@ -223,19 +166,20 @@ const QueryForm = () => {
                             multiline         
                             onChange={onChangeMessage}            
                         />
-                    </Grid> */}
-                    <Button
+                    </Grid>
+                    
+                    <Button style={{marginTop: '10%'}}
                         type="submit"
                         variant="contained"
-                        color="inherit"
+                        color='secondary'                        
                         onClick={onSubmit}                        
                     >
                         Submit
                     </Button>
+                    
 
                 </Grid>
-            </form>
-        //</ValidatorForm>
+            </form>        
         
     );
 }

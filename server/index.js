@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 
 // routers
 import patientRouter from './routes/patients.js';
+import queryRouter from './routes/queryForm.js';
 import appointmentRouter from './routes/appointment.js';
 
 dotenv.config();
@@ -30,6 +31,7 @@ connection.once('open', () => {
 
 // routing to the given path 
 app.use('/patients', patientRouter);
+app.use('/query', queryRouter);
 app.use('/appointments', appointmentRouter);
 
 app.listen(PORT, () => {

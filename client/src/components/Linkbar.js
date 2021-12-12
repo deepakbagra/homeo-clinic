@@ -12,10 +12,10 @@ const LinkBar = () => {
             <Toolbar style={{height:'5em'}} >
                 <img alt="" className={styles.image} src={LOGO} height="60" />
 
-                <Typography className={styles.header} variant="h5">Dr Reena Homeo-Clinic
+                <Typography className={styles.header} >Dr Reena Homeo-Clinic
                 </Typography>
 
-                <Button href="/Appointments" className={styles.header } 
+                <Button href="/Appointments" className={styles.header} 
                 > Book Appointment </Button>
 
                 <Button href="/Home" className={styles.linkWrap} 
