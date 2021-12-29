@@ -20,8 +20,7 @@ const SignUpForm =  () => {
         email: "",        
         password: "",        
     });
-    const [error, setError] = useState(true);
-
+    
    // handle form validation
     const handleValidation = (fields) => {
         

@@ -102,6 +102,30 @@ export default makeStyles(theme => ({
         margin: '0% 49% 6.5%',
         textAlign: 'center',
         textTransform: 'none',        
+    },
+    footer: {
+        height:'3em',
+        background: '#2E3B55',
+        color: 'white',
+        textAlign:'center',
+        marginTop: '24%',
+        position: 'fixed',
+        bottom: 0,
+        justifyContent: 'center',
+        paddingTop: '1.3%',
+        width: '100%',
+        
+        [theme.breakpoints.down('xs')]: {
+            height:'2em',
+        }            
+    },
+    text: {
+        fontSize: '80%',        
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '60%',
+            marginTop: '0.9%'            
+        },
+       
     }
    
     

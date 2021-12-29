@@ -1,19 +1,19 @@
-import { Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
+import useStyle from '../styles';
 
 const Footer = () => {
+    const classes = useStyle();
+
     return (
-        <Box style={{textAlign:'center'}}
-            sx={{height:'4em',
-                 background: '#2E3B55',
-                 color: 'white',
-                }}>
-            <br/>
+        <Box
+            className={classes.footer}>
+            <Typography className={classes.text}>
                 {new Date().getFullYear()}  
-            {'Copyright © '}
-                | Dr. Reena Homeo-Clinic | All Rights Reserved.
+                {'Copyright © '}
+                | findmyage.netlify.app | All Rights Reserved.
+            </Typography>
         </Box>
-        
-    );
+    )
 }
 
-export default Footer;
+export default Footer

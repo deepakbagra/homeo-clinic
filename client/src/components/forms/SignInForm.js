@@ -43,7 +43,7 @@ const SignInForm =  () => {
         });
         
         // directing to Sign-in page
-        window.location.href = "/Appointments/Book-Appointment";
+        window.location.href = "/Appointments/BookAppointment";
     }
    
     return (
