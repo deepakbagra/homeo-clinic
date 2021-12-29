@@ -32,7 +32,7 @@ const BookingCard = () => {
           style={buttonWrap}>
           New Visitor
         </Button>
-        <Button href='/Appointments/RegularVisitor' size="large" color='inherit'
+        <Button href='/Appointments/SignIn' size="large" color='inherit'
           style={buttonWrap}>
           Regular Visitor</Button>
       </CardActions>

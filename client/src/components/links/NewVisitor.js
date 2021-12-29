@@ -25,10 +25,11 @@ const NewVisitor = () => {
         <ThemeProvider theme={theme}>
             <CssBaseline/>      
             <LinkBar />
-            <Paper className={styles.formPageWrap}  
-            >
+
+            <Paper className={styles.formPageWrap}>
                 <SignUpForm/>
             </Paper>
+            
             <Footer />
         </ThemeProvider > 
     )

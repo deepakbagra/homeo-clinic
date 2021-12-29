@@ -9,6 +9,7 @@ import QueryForm from "./components/forms/QueryForm";
 import NewVisitor from "./components/links/NewVisitor";
 import RegularVisitor from "./components/links/RegularVisitor";
 
+
 const App = () => {
     
     return (        
@@ -21,8 +22,8 @@ const App = () => {
             <Route path="/Contact"element={<Contact/>} />
             <Route path="/Query"element={<QueryForm/>} /> 
             <Route path="/Appointments"element={<Appointments/>} />
-            <Route path="/Appointments/SignUp"element={<NewVisitor/>} />
-            <Route path="/Appointments/RegularVisitor"element={<RegularVisitor/>} />
+            <Route path="/Appointments/SignUp"element={<NewVisitor/>} />            
+            <Route path="/Appointments/SignIn"element={<RegularVisitor/>} />
 
         </Routes>
     );

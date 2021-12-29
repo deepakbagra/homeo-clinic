@@ -41,29 +41,69 @@ export default makeStyles(theme => ({
     },
     formWrap: {        
         '& .MuiFormControl-root': {
-        width:'30%',
+        width:'35%',
         margin:theme.spacing(1),
-        marginLeft: '10%',        
-        backgroundColor:'white'
+        marginLeft: '10%',      
+        backgroundColor:'white',                    
         },
-       '& .MuiTypography-root': {
-           marginLeft: '10%'
+       '& .MuiTypography-body1': {
+           marginLeft: '10%',           
        },
+       
        '& .MuiButtonBase-root': {
-           marginLeft: '10%'
+           marginLeft: '10%',
        }      
     },
-    formPageWrap: {
-        margin: theme.spacing(14),
+    SignInFormWrap: {
+        '& .MuiFormControl-root': {
+            width:'70%',
+            margin:theme.spacing(1),
+            marginLeft: '10%',      
+            backgroundColor:'white',                    
+            },
+           '& .MuiTypography-body1': {
+               marginLeft: '10%',           
+           },
+           
+           '& .MuiButtonBase-root': {
+               marginLeft: '10%',
+           }      
+    },
+
+    formPageWrap: {   
+        marginTop: '2%',
+        marginLeft: '10%',
+        marginRight: '10%',
+        marginBottom: '7%',
         padding: theme.spacing(1),
         backgroundColor: '#F4F5F7',
-        alignItems: 'center'
-        
+        alignItems: 'center'        
+    },
+    signInPageWrap: {
+        marginTop: '5%',
+        marginLeft: '32%',
+        marginRight: '10%',
+        marginBottom: '14%',
+        padding: theme.spacing(1),
+        backgroundColor: '#F4F5F7',
+        width: '35%'        
     },
     formButton: {
-        marginTop: '1%',
-        marginRight: '10%'
+        marginTop: '2%',
+        marginRight: '10%',
+        textTransform: 'none'
+    },
+    
+    nextButton: {
+        margin: '1% 49%',
+        textTransform: 'none'
+    },
+    bookButton: {
+        margin: '0% 49% 6.5%',
+        textAlign: 'center',
+        textTransform: 'none',        
     }
+   
     
    
 

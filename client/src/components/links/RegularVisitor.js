@@ -1,8 +1,10 @@
 import React from 'react';
 import LinkBar from '../Linkbar';
 import Footer from '../Footer';
-import { CssBaseline } from '@material-ui/core';
 import { createTheme, ThemeProvider} from "@material-ui/core/styles";
+import { CssBaseline, Paper, Button } from '@material-ui/core';
+import useStyle from '../../styles';
+import SignInForm from '../forms/SignInForm';
 
 // custome theme
 const theme = createTheme({
@@ -17,12 +19,18 @@ const theme = createTheme({
 });
 
 const RegularVisitor = () => {
+    const styles = useStyle();
     
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>      
             <LinkBar /> 
-            Regular Visitor
+
+            <Paper className={styles.signInPageWrap}>
+                <SignInForm/>
+            </Paper>
+
+            
             <Footer />
         </ThemeProvider > 
     )

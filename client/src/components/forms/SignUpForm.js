@@ -18,6 +18,7 @@ const SignUpForm =  () => {
         gender: "",
         dob: "",
         email: "",        
+        password: "",        
     });
 
    // handle form validation
@@ -26,72 +27,36 @@ const SignUpForm =  () => {
         let errMessages = "";
 
         if (fields.firstName === "") { 
-            errMessages += "first name cannot be empty!\n";
-            
+            errMessages += "first name cannot be empty!\n";            
         }
         if (fields.lastName === "") { 
-            errMessages += "last name cannot be empty!\n";
-            
+            errMessages += "last name cannot be empty!\n";            
         }
         if (fields.gender === "") { 
-            errMessages += "gender cannot be empty!\n";
-            
+            errMessages += "gender cannot be empty!\n";            
         }
         if (fields.email === "") { 
-            errMessages += "email cannot be empty!\n";
-            
+            errMessages += "email cannot be empty!\n";            
+        }       
+        if (fields.password === "") { 
+            errMessages += "password cannot be empty!\n";            
         }
         return errMessages;
-    }    
-
-    const onChangeFirstName = (e) => {
-        setState({   
-            ...state,         
-            firstName: e.target.value
-        });
-    }
-
-    const onChangeMiddleName = (e) => {
-        setState({   
-            ...state,         
-            middleName: e.target.value
-        });
-    }
-
-    const onChangeLastName = (e) => {
-        setState({   
-            ...state,         
-            lastName: e.target.value
-        });
-    }
-
-    const onChangeGender = (e) => {
-        setState({   
-            ...state,         
-            gender: e.target.value
-        });
-    }
-
-    const onChangeEmail = (e) => {
-        setState({
-            ...state,
-            email: e.target.value
-        });
-    }
-
+    } 
     
+    const onChange = (e) => {
+        setState({   
+            ...state,         
+            [e.target.name]: e.target.value
+        });
+    }
+
+        
     // updating states into database on form submission event
     const onSubmit = (e) => {
-        e.preventDefault();       
-
-        const signUpForm = {
-            firstName: state.firstName,
-            middleName: state.middleName,
-            lastName: state.lastName,
-            gender: state.gender,
-            dob: state.dob,
-            email: state.email,            
-        }
+        e.preventDefault();
+       
+        const signUpForm = state;
         
         // posting to database
         console.log(signUpForm);
@@ -101,33 +66,30 @@ const SignUpForm =  () => {
 
         // posting form data to the server if no input error
         if (errMessages === "") {
-            
-            //alert("Thank you for sign up");
 
             axios.post('http://localhost:9000/patients/signUp', signUpForm)
             .then(res => alert(res.data))
             .catch(err => console.log(err));
-            
 
-            // setting form field blank after submitting
             setState({
                 firstName: "",
                 middleName: "",
                 lastName: "",
                 gender: "",
                 dob: "",
-                email: "",             
-            })
+                email: "",        
+                password: "",
+            });
             
+            // directing to Sign-in page
+           // window.location.href = "/Appointments/SignIn";
+                      
         }
 
         else {
             alert(errMessages);
-        }
-        
-        
+        }       
     }
-
    
     return (
         
@@ -137,69 +99,43 @@ const SignUpForm =  () => {
         autoComplete="off"
         className={styles.formWrap} >
             
-            <Typography variant="h6" gutterBottom >
-                Please register your detail here
+            <Typography variant='body1' gutterBottom >
+                Sign-up and then click 'Next' to proceed.. 📝
             </Typography>
             
-            <TextField                             
-
+            <TextField size='small' className={styles.textField}
                 label="first-name"                            
                 variant="outlined"
                 required
                 fullWidth
-                name="first-name"
+                name="firstName"
                 value={state.firstName}           
-                onChange={onChangeFirstName}            
+                onChange={onChange}            
             />
-        
-
-        
-            <TextField
-
+            <TextField size='small'
                 label="middle-name"                            
                 variant="outlined"                            
                 fullWidth
-                name="middle-name"
+                name="middleName"
                 value={state.middleName}           
-                onChange={onChangeMiddleName}            
+                onChange={onChange}            
             />
-        
-
-        
-            <TextField
-
+            <TextField size='small'
                 label="last-name"                            
                 variant="outlined"
                 required                            
                 fullWidth
-                name="last-name"
+                name="lastName"
                 value={state.lastName}           
-                onChange={onChangeLastName}            
+                onChange={onChange}            
             />
-        
-
-        
-            {/* <TextField
-
-                label="gender"
-                select                                             
-                variant="outlined"
-                required                            
-                fullWidth
-                name="gender"
-                value={state.gender}           
-                onChange={onChangeGender}            
-            >
-                <MenuItem value={'M'}>M</MenuItem>
-                <MenuItem value={'F'}>F</MenuItem>
-            </TextField> */}
             
             <FormControl>
-                <FormLabel>Gender</FormLabel>
+                <FormLabel>Gender *</FormLabel>
                 <RadioGroup row 
                     name='gender'
                     value={state.gender}
-                    onChange={onChangeGender}>
+                    onChange={onChange}>
 
                     <FormControlLabel value='male' control={<Radio/>} label='Male'/>
                     <FormControlLabel value='female' control={<Radio/>} label='Female'/>
@@ -207,32 +143,28 @@ const SignUpForm =  () => {
                 
                 </RadioGroup>
             </FormControl>
-        
-
-        
-            {/* <TextField
-
-                label="dob"                            
-                variant="outlined"                                                        
-                fullWidth
-                name="dob"
-                value={state.dob}           
-                onChange={onChangeDob}            
-            /> */}
-
+            
+            {/* calling datpicker component to pick date of birth */}
             <DatePickers />
-        
-            <TextField
 
+            <TextField size='small'
                 label="email"                            
                 variant="outlined"
                 required                          
                 fullWidth
-                name="Email"
+                name="email"
                 value={state.email}         
-                onChange={onChangeEmail}            
-            />            
-
+                onChange={onChange}            
+            />
+            <TextField size='small'
+                label="password"                            
+                variant="outlined"
+                required                          
+                fullWidth
+                name="password"
+                value={state.password}         
+                onChange={onChange}            
+            /> 
             <Button
                 type="submit"
                 variant="contained"

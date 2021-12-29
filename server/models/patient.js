@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const patientSchema = new Schema({
     firstName: {
         type: String,
-        required: [true, "first name cannot be blank!"],
+        required: true,
         trim: true,
     },
     middleName: {
@@ -28,10 +28,19 @@ const patientSchema = new Schema({
         trim: true, 
     },
     email: {
-        type: mongoose.SchemaTypes.Email,
+        type: String,
         required: true,
         trim: true,
+    },    
+    password: {
+        type: String,
+        required: true,
+        trim: true,        
     },
+    date: {
+        type: Date,
+        default: Date.now
+    }
     
 });
 
