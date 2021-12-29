@@ -31,7 +31,7 @@ router.route('/signUp').post(async (req, res) => {
     const password = encryptedPassword;
 
     // verify if the patient's email already exist in database
-    Patient.find({ email: email }, (err, patient) => {
+   await Patient.find({ email: email }, (err, patient) => {
 
         if (err) {
             res.send('Error: Internal Server Error!')
@@ -51,8 +51,8 @@ router.route('/signUp').post(async (req, res) => {
                 password,
             });
              
-            newPatient.save()
-            .then(() => res.json('Sign Up Successfully! Click next to sign in'))
+             newPatient.save()
+            .then(() => res.status(200).send('Sign up successfully'))
             .catch(error => res.send(error.message));            
         }
     })

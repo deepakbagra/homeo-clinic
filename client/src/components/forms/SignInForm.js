@@ -40,7 +40,10 @@ const SignInForm =  () => {
         setState({            
             email: "",                
             password: "",             
-        }) 
+        });
+        
+        // directing to Sign-in page
+        window.location.href = "/Appointments/Book-Appointment";
     }
    
     return (
@@ -52,7 +55,7 @@ const SignInForm =  () => {
         className={styles.SignInFormWrap} >
             
             <Typography variant='body1' gutterBottom >
-                Please login here 🔐
+                Please login to book an appointment 🔐
             </Typography>
             
             

@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import QueryForm from "./components/forms/QueryForm";
 import NewVisitor from "./components/links/NewVisitor";
 import RegularVisitor from "./components/links/RegularVisitor";
+import BookAppointment from "./components/BookAppointment";
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/Appointments"element={<Appointments/>} />
             <Route path="/Appointments/SignUp"element={<NewVisitor/>} />            
             <Route path="/Appointments/SignIn"element={<RegularVisitor/>} />
+            <Route path="/Appointments/Book-Appointment"element={<BookAppointment/>} />
 
         </Routes>
     );

@@ -20,6 +20,7 @@ const SignUpForm =  () => {
         email: "",        
         password: "",        
     });
+    const [error, setError] = useState(true);
 
    // handle form validation
     const handleValidation = (fields) => {
@@ -70,20 +71,22 @@ const SignUpForm =  () => {
             axios.post('http://localhost:9000/patients/signUp', signUpForm)
             .then(res => alert(res.data))
             .catch(err => console.log(err));
-
+           
+            // setting form field blank after submitting
             setState({
                 firstName: "",
                 middleName: "",
                 lastName: "",
                 gender: "",
                 dob: "",
-                email: "",        
-                password: "",
+                email: "",                
+                password: "",             
             });
+            alert("Sign up successfully, directed to sign-in page.");           
             
-            // directing to Sign-in page
-           // window.location.href = "/Appointments/SignIn";
-                      
+            // directing to Sign-in page           
+            window.location.href = "/Appointments/SignIn"; 
+                                
         }
 
         else {
@@ -100,7 +103,7 @@ const SignUpForm =  () => {
         className={styles.formWrap} >
             
             <Typography variant='body1' gutterBottom >
-                Sign-up and then click 'Next' to proceed.. 📝
+                Please first Sign-up 📝
             </Typography>
             
             <TextField size='small' className={styles.textField}
