@@ -10,7 +10,7 @@ import useStyle from '../../styles';
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#00695f',                                  
+            main: '#00695f',                     
         }, 
         secondary: {
             main: '#C70411',

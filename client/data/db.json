@@ -1,0 +1,16 @@
+{ 
+    "bookings":[
+        {     
+            "appointment_date": "31/12/2021",
+            "appointment_time": "10:00 - 11:00 pm"
+        },
+        {     
+            "appointment_date": "31/12/2021",
+            "appointment_time": "08:00 - 09:00 pm"
+        },
+        {     
+            "appointment_date": "01/01/2022",
+            "appointment_time": "08:00 - 09:00 pm"
+        }
+    ]
+}

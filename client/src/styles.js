@@ -124,11 +124,11 @@ export default makeStyles(theme => ({
         [theme.breakpoints.down('xs')]: {
             fontSize: '60%',
             marginTop: '0.9%'            
-        },
-       
+        },       
+    },
+    bookingTimeSlot: {
+        marginLeft: '10%',
+        width: '30%'
     }
-   
-    
-   
 
 }));

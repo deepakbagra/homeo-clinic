@@ -9,28 +9,30 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error:' + err));
 });
 
-router.route('/add').post((req, res) => {    
-    let name = req.body.name;
-    let appointmentDate = req.body.appointmentDate;
-    let appointmentTime = req.body.appointmentTime;
-    let email = req.body.email;
-      
+router.route('/bookAppointment').post((req, res) => {
 
-    if (!appointmentDate || !name || !email) {
-        return res.status(400).json(
-            'Appointment date, name and email are required',
-        );        
-    }
-
-    const newAppointment = new Appointment( {        
-        name,
-        appointmentDate,
-        appointmentTime,
-        email,
+    const newAppointment = new Appointment({        
+        bookDate: req.body.bookDate,
+        bookTime: req.body.bookTime,
      });
-     newAppointment.save()
-     .then(result => res.json(result))
-     .catch(err => res.send(err));
+
+     // verify if the requested booking slot already exist in database
+    Patient.find({ bookDate: bookDate },
+        { bookTime: bookTime }, (err, booking) => {
+
+        if (err) {
+            res.send('Error: Internal Server Error!')
+        }
+        else if (booking.length > 0) {
+            res.send(`The slot is already booked!`)
+        }
+        // if no sign up error, save the new patient
+        else {
+            newAppointment.save()
+            .then(result => res.json(result))
+            .catch(err => res.send(err));
+        }
+    })
 });
 
 // find appointment by id

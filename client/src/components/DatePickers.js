@@ -13,7 +13,7 @@ const DatePickers = () => {
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker              
-                format='MMM/dd/yyyy'
+                format='dd/MM/yyyy'
                 variant='dialog'
                 margin='normal'
                 id='date-picker'

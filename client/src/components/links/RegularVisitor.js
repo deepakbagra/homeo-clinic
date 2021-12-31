@@ -2,7 +2,7 @@ import React from 'react';
 import LinkBar from '../Linkbar';
 import Footer from '../Footer';
 import { createTheme, ThemeProvider} from "@material-ui/core/styles";
-import { CssBaseline, Paper, Button } from '@material-ui/core';
+import { CssBaseline, Paper } from '@material-ui/core';
 import useStyle from '../../styles';
 import SignInForm from '../forms/SignInForm';
 

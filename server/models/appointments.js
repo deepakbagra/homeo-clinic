@@ -6,11 +6,6 @@ const Schema = mongoose.Schema;
 
 const appointmentSchema = new Schema({
     
-    name: {
-        type: String,
-        required: true,
-        trim: true,
-    },
     appointmentDate : {
         type: String,
         trim: true,
@@ -19,11 +14,7 @@ const appointmentSchema = new Schema({
         type: String,
         trim: true,
     },
-    email: {
-        type: mongoose.SchemaTypes.Email,
-        required: true,
-        trim: true,
-    }
+    
 });
 
 const appointment = mongoose.model('appointment', appointmentSchema);
