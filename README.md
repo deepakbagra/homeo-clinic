@@ -1,3 +1,23 @@
 # homeo-clinic
-This is my first independent live project. In thus project, I am about to develop a full stack web application for a client based in India. The application is about a homeopathy clinic being run by a client in Jaipur India. This project will be progressed on agile methodology. I will use MERN stack to build this application.  
-I have created a local repository in my system.
+- About
+The application is about a homeopathy clinic being run by a client in Jaipur India.
+
+## Type
+Full Stack (MERN) Web Application
+
+## Frontend Web Tools
+- React
+- CSS
+- Material-UI
+- JavaScript
+
+## Backend Web Tools
+- Node.js
+- Express.js
+- MongoDb Atlus
+- JavaScript
+
+## Current Status
+- Development
+
+
